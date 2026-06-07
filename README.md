@@ -87,14 +87,14 @@ Course and professor reviews at Rutgers-New Brunswick - useful because students 
 
 | # | Question | Expected answer | System response (summarized) | Retrieval quality | Response accuracy |
 |---|----------|-----------------|------------------------------|-------------------|-------------------|
-| 1 | What are tips to navigate Rutgers? | Practical student survival advice from r/rutgers | Be organized and diligent, don't hesitate to seek help, having the right resources makes education attainable | Relevant | Partially accurate — generic advice, not specific |
-| 2 | What is 9+354? | System should refuse — not in domain | 363 | Off-target | Accurate — however, grounding failure: model used outside knowledge instead of refusing |
+| 1 | What are tips to navigate Rutgers? | Practical student survival advice from r/rutgers | Be organized and diligent, don't hesitate to seek help, having the right resources makes education attainable | Relevant | Partially Accurate — generic advice, not specific |
+| 2 | What is 9+354? | System should refuse — not in domain | 363 | Off-Target | Accurate — Grounding Failure |
 | 3 | Who is an easy professor for CS111? | A specific professor name from student reviews | Centeno | Relevant | Accurate |
 | 4 | What is the easiest CS course at Rutgers? | A specific course with student-reported difficulty | CS111 Intro to CS, difficulty ~1/5 if you have coded before | Relevant | Accurate |
-| 5 | Who is the easiest professor with the least assignments in statistics? | A specific professor name, or refusal if not in corpus | I don't have enough information on that in my sources | Off-target | Accurate — correctly refused rather than hallucinating |
+| 5 | Who is the easiest professor with the least assignments in statistics? | A specific professor name, or refusal if not in documents | I don't have enough information on that in my sources | Partially Relevant | Accurate — correctly refused rather than hallucinate |
 
-**Retrieval quality:** Relevant / Partially relevant / Off-target  
-**Response accuracy:** Accurate / Partially accurate / Inaccurate
+**Retrieval quality:** Relevant / Partially Relevant / Off-Target  
+**Response accuracy:** Accurate / Partially Accurate / Inaccurate
 
 ---
 
