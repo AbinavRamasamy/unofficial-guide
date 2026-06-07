@@ -103,12 +103,12 @@ The domain I chose was course and professor reviews. This knowledge is valuable 
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
 ```mermaid
 flowchart LR
-    A["📄 Document Ingestion\n―――――――――\nRequests + BeautifulSoup\nSources: RateMyProfessors,\nr/rutgers, Koofers"]
-    B["✂️ Chunking\n―――――――――\nPython / LangChain\n250 tokens · 0 overlap\nOne review per chunk"]
+    A["📄 Document Ingestion\n―――――――――\nRequests + BeautifulSoup\nSources: RateMyProfessors,\nr/rutgers RSS"]
+    B["✂️ Chunking\n―――――――――\nPython\n250 tokens · 0 overlap\nOne review per chunk"]
     C["🔢 Embedding\n―――――――――\nsentence-transformers\nall-MiniLM-L6-v2"]
-    D["🗄️ Vector Store\n―――――――――\nFAISS\nCosine similarity index"]
-    E["🔍 Retrieval\n―――――――――\nFAISS similarity search\ntop-k = 5 chunks"]
-    F["💬 Generation\n―――――――――\nGroq API\nOpen-Source LLM"]
+    D["🗄️ Vector Store\n―――――――――\nChromaDB\nCosine similarity index"]
+    E["🔍 Retrieval\n―――――――――\nChromaDB similarity search\ntop-k = 5 chunks"]
+    F["💬 Generation\n―――――――――\nGroq API\nllama-3.3-70b-versatile"]
 
     A --> B --> C --> D --> E --> F
 ```
