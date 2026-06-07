@@ -15,6 +15,26 @@ env/
 # ChromaDB local storage
 chroma_db/
 chroma/
+documents/chroma_db/
+
+# Generated pipeline output
+documents/chunks.json
+documents/raw_documents.json
 
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
