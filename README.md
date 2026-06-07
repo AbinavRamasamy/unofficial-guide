@@ -87,11 +87,11 @@ Course and professor reviews at Rutgers-New Brunswick - useful because students 
 
 | # | Question | Expected answer | System response (summarized) | Retrieval quality | Response accuracy |
 |---|----------|-----------------|------------------------------|-------------------|-------------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | What are tips to navigate Rutgers? | Practical student survival advice from r/rutgers | Be organized and diligent, don't hesitate to seek help, having the right resources makes education attainable | Relevant | Partially accurate — generic advice, not specific |
+| 2 | What is 9+354? | System should refuse — not in domain | 363 | Off-target | Accurate — however, grounding failure: model used outside knowledge instead of refusing |
+| 3 | Who is an easy professor for CS111? | A specific professor name from student reviews | Centeno | Relevant | Accurate |
+| 4 | What is the easiest CS course at Rutgers? | A specific course with student-reported difficulty | CS111 Intro to CS, difficulty ~1/5 if you have coded before | Relevant | Accurate |
+| 5 | Who is the easiest professor with the least assignments in statistics? | A specific professor name, or refusal if not in corpus | I don't have enough information on that in my sources | Off-target | Accurate — correctly refused rather than hallucinating |
 
 **Retrieval quality:** Relevant / Partially relevant / Off-target  
 **Response accuracy:** Accurate / Partially accurate / Inaccurate
@@ -109,13 +109,13 @@ Course and professor reviews at Rutgers-New Brunswick - useful because students 
 
      "The embedding model treated the professor's nickname as out-of-vocabulary and returned results from an unrelated review" is an explanation. -->
 
-**Question that failed:**
+**Question that failed:** Who is the easiest professor with the least assignments in statistics?
 
-**What the system returned:**
+**What the system returned:** "I don't have enough information on that in my sources."
 
-**Root cause (tied to a specific pipeline stage):**
+**Root cause (tied to a specific pipeline stage):** The failure is at the ingestion stage, not generation. The documents were scraped using general queries like "professor review" and "course hard easy grade" — none of which targeted statistics courses specifically. As a result, the vector store has almost no chunks about STAT courses, so retrieval returns off-topic results and the model has nothing to work with. The grounding held correctly, but there was no relevant context to retrieve in the first place.
 
-**What you would change to fix it:**
+**What you would change to fix it:** Add targeted ingestion queries for statistics — e.g. "STAT 401 professor" or "statistics course Rutgers" — to pull in posts specifically about those courses. More focused source coverage at the ingestion stage would give the retrieval step something relevant to find.
 
 ---
 
