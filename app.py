@@ -12,7 +12,6 @@ def ask(question: str) -> tuple[str, str]:
         return "Please enter a question.", ""
     return generate(question)
 
-
 with gr.Blocks(title="Rutgers Unofficial Guide") as demo:
     gr.Markdown("# Rutgers Unofficial Guide\nAsk anything about courses and professors at Rutgers NB.")
 

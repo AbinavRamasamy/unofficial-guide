@@ -20,5 +20,3 @@ if __name__ == "__main__":
         answer, sources = generate(query)
         print(answer)
         print(sources)
-
-    print("\n=== Step 4: IDK (build UI?) ===")
